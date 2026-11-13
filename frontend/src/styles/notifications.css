@@ -1,0 +1,271 @@
+/* ==========================================================================
+   Notifications Page & Badge Styles (Step 13)
+   ========================================================================== */
+.notifications-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.notifications-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.notifications-title {
+  margin: 0 0 6px;
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.notifications-subtitle {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.notifications-mark-all-btn {
+  width: auto !important;
+  padding: 8px 16px !important;
+  font-size: 0.8125rem !important;
+  flex-shrink: 0;
+}
+
+.notifications-banner {
+  margin: 0;
+}
+
+/* Notifications Container & States */
+.notifications-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notifications-state {
+  background: var(--surface, var(--bg));
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  padding: 44px 20px;
+  text-align: center;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.notifications-state-icon {
+  font-size: 2.25rem;
+  margin-bottom: 4px;
+}
+
+.notifications-state h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.notifications-state p {
+  margin: 0;
+  font-size: 0.875rem;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.notifications-state--loading {
+  flex-direction: row;
+  justify-content: center;
+  padding: 32px 20px;
+  gap: 12px;
+}
+
+/* Notification List & Items */
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notification-item {
+  background: var(--surface, var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--shadow);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.notification-item--unread {
+  background: rgba(99, 102, 241, 0.05);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.notification-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-avatar-link {
+  position: relative;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.notification-avatar,
+.notification-avatar-fallback {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.notification-avatar {
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.notification-avatar-fallback {
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  color: #ffffff;
+}
+
+.notification-type-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--surface, var(--bg));
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  line-height: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-message {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-h);
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.notification-post-snippet {
+  margin: 2px 0 0;
+  font-size: 0.8125rem;
+  color: var(--text);
+  font-style: italic;
+  opacity: 0.85;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notification-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.notification-unread-dot {
+  color: var(--primary, #6366f1);
+  font-weight: 600;
+}
+
+.notification-mark-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-height: 38px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+@media (max-width: 540px) {
+  .notification-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .notification-mark-btn {
+    align-self: flex-end;
+  }
+}
+
+.notification-mark-btn:hover:not(:disabled) {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--primary, #6366f1);
+  color: var(--primary, #6366f1);
+}
+
+.notification-mark-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Navbar Unread Badge */
+.navbar-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  line-height: 1.2;
+  margin-left: 6px;
+  box-shadow: 0 1px 3px rgba(239, 68, 68, 0.4);
+  animation: badgePop 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes badgePop {
+  0% {
+    transform: scale(0.6);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

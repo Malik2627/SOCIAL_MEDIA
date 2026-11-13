@@ -1,0 +1,338 @@
+/* ==========================================================================
+   User Search & UserCard Styles (Step 11)
+   ========================================================================== */
+.search-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.search-header {
+  margin-bottom: 4px;
+}
+
+.search-title {
+  margin: 0 0 6px;
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.search-subtitle {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+/* Search Bar */
+.search-form {
+  width: 100%;
+}
+
+.search-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-input-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 1rem;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-h);
+  background: var(--surface, var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 42px 12px 40px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary, #6366f1);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 0.875rem;
+  color: var(--text);
+  opacity: 0.7;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 50%;
+  line-height: 1;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.search-clear-btn:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.search-error-banner {
+  margin: 0;
+}
+
+/* Search Results States */
+.search-results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-state {
+  background: var(--surface, var(--bg));
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  padding: 44px 20px;
+  text-align: center;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-state-icon {
+  font-size: 2.25rem;
+  margin-bottom: 4px;
+}
+
+.search-state h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.search-state p {
+  margin: 0;
+  font-size: 0.875rem;
+  max-width: 380px;
+  line-height: 1.5;
+}
+
+.search-state--loading {
+  flex-direction: row;
+  justify-content: center;
+  padding: 32px 20px;
+  gap: 12px;
+}
+
+/* Results List & Header */
+.search-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search-results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.search-results-count {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* UserCard Component */
+.user-card {
+  background: var(--surface, var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.user-card:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.user-card-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.user-card-avatar-link {
+  position: relative;
+  flex-shrink: 0;
+  text-decoration: none;
+  display: inline-flex;
+}
+
+.user-online-badge {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background-color: #22c55e;
+  border: 2px solid var(--surface, #ffffff);
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+  z-index: 1;
+}
+
+.online-indicator-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #15803d;
+  background-color: #dcfce7;
+  border: 1px solid #bbf7d0;
+  line-height: 1.2;
+}
+
+.online-indicator-pill::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #22c55e;
+}
+
+.user-card-avatar,
+.user-card-avatar-fallback {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  font-weight: 700;
+  transition: transform 0.15s ease;
+}
+
+.user-card:hover .user-card-avatar,
+.user-card:hover .user-card-avatar-fallback {
+  transform: scale(1.05);
+}
+
+.user-card-avatar {
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.user-card-avatar-fallback {
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  color: #ffffff;
+}
+
+.user-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+.user-card-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.user-card-name-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.user-card-name {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-h);
+  transition: color 0.15s ease;
+}
+
+.user-card-name-link:hover .user-card-name {
+  color: var(--primary, #6366f1);
+}
+
+.user-card-handle {
+  font-size: 0.8125rem;
+  color: var(--accent, var(--text));
+  font-weight: 500;
+}
+
+.user-card-bio {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--text);
+  line-height: 1.45;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-card-stats {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.user-card-stat strong {
+  color: var(--text-h);
+}
+
+.user-card-stat-dot {
+  opacity: 0.5;
+}
+
+.user-card-actions {
+  flex-shrink: 0;
+}
+
+@media (max-width: 540px) {
+  .user-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .user-card-actions {
+    align-self: flex-end;
+  }
+}
+
